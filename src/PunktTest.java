@@ -18,10 +18,8 @@ public class PunktTest {
     }
 
     @Test
-    public void xEqualsNull() {
-        Punkt punkt = new Punkt(x1,5 );
-        double x = 5;
-        assertNull(punkt.x);
+    public void name() {
+
     }
 
     @Test
@@ -101,5 +99,17 @@ public class PunktTest {
         double distance = 5;
         CDBP cdbp = new CDBP(punkt1.x, punkt1.y, punkt2.x, punkt2.y);
         assertNotEquals(distance, cdbp.cDistance(), 0.001);
+    }
+
+    @Test
+    public void catchException() {
+        Punkt punkt1 = new Punkt(5, 5);
+        Punkt punkt2 = null;
+        try {
+            NewLine newLine = new NewLine(punkt2.y, punkt1.y, punkt2.x, punkt1.x);
+        } catch (Exception e){
+            return;
+        }
+        fail();
     }
 }
